@@ -9,12 +9,8 @@
 					</div>
 					<div class="header__column">
 
-						<!-- 14. навзвание класса селекта, преобразуется в модефикатор -->
-						<!-- <form class="header__form "> -->
 							<div class="form__line">
-								<!-- <label for=""></label> -->
 								<select name="form[]" class="form header__select">
-								<!-- <select name="form[]" class="form header__select select"> -->
 									<option value="1" selected="selected">По-умолчанию</option>
 									<option value="2">По-умолчанию 2</option>
 									<option value="3">По-умолчанию 3</option>
@@ -22,8 +18,6 @@
 								</select>
 							</div>
 							
-						<!-- </form> -->
-
 					</div>
 				</div>
 
@@ -36,8 +30,7 @@
 					<post-form
 					@create="createPost"
 					/>
-
-					<!-- v-bind - привязывает данные к компоненту, которые передадутся к нему как пропсы -->
+					
 					<post-list 
 					v-bind:posts="posts"
 					/> 
@@ -61,18 +54,16 @@ export default{
         PostList, PostForm
     },
 
-	// Тут храняться данные:
     data(){
         return{
            posts:[
-               {id: 1, image: '../images/polaroid.jpg', title: 'Наименование товара', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '10 000'},
-               {id: 2, image: '../images/polaroid.jpg', title: 'Наименование товара 2', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '12 000'},
-               {id: 3, image: '../images/polaroid.jpg', title: 'Наименование товара 3', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '13 000'},
-               {id: 4, image: '../images/polaroid.jpg', title: 'Наименование товара 4', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '14 000'},
+               {id: 1, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '10 000'},
+               {id: 2, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 2', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '12 000'},
+               {id: 3, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 3', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '13 000'},
+               {id: 4, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 4', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '14 000'},
            ],
         }
     },
-    // Тут мы указываем методы, которые вызываем из HTML
     methods: {
         createPost(post){
             this.posts.push(post);

@@ -3,14 +3,6 @@
         <div class="aside__content">
             <form class="aside__form form" @submit.prevent>
 
-                <!-- 5. В теге input, аттрибут data-value выполняет роль плэйсхолдера
-				6. В теге input, мы можем добавить тех. класс _req  При этом при отсутствии заполнения формы на момент отправки, выводится сообщение снизу, которое заранее прописано в атрибуте data-error. Так же инпуту и его родителю добавляется класс _error
-				7. Когда пользователь кликает на поле ввода, теги инпут и его родителю добавляется класс _focus
-				
-				9. Для возможности подключения МАСКИ (календари, номер телефона) нам необходимо подключить файлы js libs/inputmask.min.js  После чего у нас появляется возможность использовать две маски. При этом в теге инпута должен присутствовать аттрибут data-value, пусть даже без значения
-				10. Маска с классом _digital - в поле нельзя вводить ничего кроме цифр, прописывается класс _digital в инпут
-				12. Добавляем кнопочку button (снипет a.btn+tab) c классом btn-->
-
                 <div class="form__line">
                     <label for="1" class="form__label">Наименование товара<span> *</span></label>
                     <input v-model="post.title" id="1" autocomplete="off" type="text" name="form[]" data-error=""
@@ -30,8 +22,6 @@
                 </div>
                 <div class="form__line">
                     <label for="4" class="form__label">Цена товара<span> *</span></label>
-                        <!-- <input v-model="post.price" oninput="this.value = this.value.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')" id="4" autocomplete="off" type="text" name="form[]" data-error="Обязательное поле, только цифры" placeholder="Введите цену"
-                        data-value="" class="input _req _digital"> -->
                         <input v-model="post.price" oninput="this.value = this.value.replace(/[^\d.,]/g, '').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').trim();" id="4" autocomplete="off" type="text" name="form[]" data-error="Обязательное поле, только цифры" placeholder="Введите цену"
                         data-value="" class="input _req">
                 </div>
@@ -77,13 +67,6 @@ export default {
             } 
         }
     },
-	// mounted() {
-    // const s = document.createElement("script");
-    // s.innerHTML = `
-    //    if(this.post)
-    //   `;
-    // document.body.appendChild(s);
-  	// },
 }
 </script>
 

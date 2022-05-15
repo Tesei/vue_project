@@ -8,8 +8,7 @@
         </div>
         <div class="card__content">
             <div class="card__picture _ibg">
-                <img src="../images/polaroid.jpg" alt="Изображние товара" class="card__img">
-                <!-- <img :src="post.image" alt="Изображние товара" class="card__img"> -->
+                <img :src="post.image" alt="Изображние товара" class="card__img">
             </div>
             <div class="card__about">
                 <h3 class="card__title">{{post.title}}</h3>
