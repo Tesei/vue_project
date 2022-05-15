@@ -1,4 +1,4 @@
-# project_test
+# project_on_VUE
 
 ## Project setup
 
