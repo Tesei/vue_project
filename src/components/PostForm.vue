@@ -71,11 +71,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import '../styles/variables';
-	@import '../styles/fonts';
-	@import '../styles/null';
-	@import '../styles/base';
-	@import '../styles/forms';
+@import '../styles/index.scss';
 
 	.main {
 		// .main__aside

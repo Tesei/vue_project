@@ -33,6 +33,7 @@
 					
 					<post-list 
 					v-bind:posts="posts"
+					@remove="removePost"
 					/> 
 
 				</div>
@@ -68,17 +69,16 @@ export default{
         createPost(post){
             this.posts.push(post);
         },
+        removePost(post){
+            this.posts = this.posts.filter(p=> p.id !== post.id)
+        }
     }
 }
 
 </script>
 
 <style lang="scss">
-	@import './styles/variables';
-	@import './styles/fonts';
-	@import './styles/null';
-	@import './styles/base';
-	@import './styles/forms';
+	@import './styles/index.scss';
 
 	#app {
 	}

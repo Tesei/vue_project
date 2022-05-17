@@ -1,7 +1,9 @@
 <template>
 
     <article class="goods__item card">
-        <div class="card__bucket">
+        <div class="card__bucket"
+		@click="$emit('remove', post)"
+		>
             <div class="card__bucket-picture">
                 <img src="../images/icons/bucket.svg" alt="Удалить товар" class="card__bucketImage">
             </div>
@@ -32,12 +34,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-    @import '../styles/variables';
-	@import '../styles/fonts';
-	@import '../styles/null';
-	@import '../styles/base';
-	@import '../styles/forms';
+@import '../styles/index.scss';
 
 	.card {
 		position: relative;
