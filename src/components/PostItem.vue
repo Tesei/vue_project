@@ -1,7 +1,9 @@
 <template>
 
     <article class="goods__item card">
-        <div class="card__bucket">
+        <div class="card__bucket"
+		@click="$emit('remove', post)"
+		>
             <div class="card__bucket-picture">
                 <img src="../images/icons/bucket.svg" alt="Удалить товар" class="card__bucketImage">
             </div>
