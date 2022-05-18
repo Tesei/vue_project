@@ -9,12 +9,12 @@
 					</div>
 					<div class="header__column">
 
-							<div class="form__line">
+							<div @click="sortNameCards" class="form__line">
 								<select name="form[]" class="form header__select">
 									<option value="1" selected="selected">По-умолчанию</option>
-									<option value="2">По-умолчанию 2</option>
-									<option value="3">По-умолчанию 3</option>
-									<option value="4">По-умолчанию 4</option>
+									<option value="2">По цене min</option>
+									<option value="3">По цене max</option>
+									<option value="4">По наименованию</option>
 								</select>
 							</div>
 							
@@ -59,9 +59,9 @@ export default{
         return{
            posts:[
                {id: 1, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '10 000'},
-               {id: 2, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 2', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '12 000'},
+               {id: 2, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 4', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '12 000'},
                {id: 3, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 3', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '13 000'},
-               {id: 4, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 4', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '14 000'},
+               {id: 4, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 2', body: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '14 000'},
            ],
         }
     },
@@ -71,7 +71,32 @@ export default{
         },
         removePost(post){
             this.posts = this.posts.filter(p=> p.id !== post.id)
-        }
+        },
+		sortNameCards(){
+			// console.log("hi lady");
+			// let selOptions = document.querySelector('.header__column .select__options')
+			// let var = document.querySelector('.header__column .select__options');
+			// selOptions.addEventListener("click", function(event) {
+			// 	if(event.target.closest)
+			// });
+			
+			// let newPostArr = []
+			// let someArr = []
+
+			// posts.forEach(element => {
+			// 	someArr.push(element.title)
+			// });
+
+			// someArr.forEach(element => {
+			// 	posts.forEach(item => {
+			// 		if(item.title === element){
+			// 			newPostArr.push(item);
+			// 		}		
+			// 	});	
+			// });
+			// posts = newPostArr
+		}
+
     }
 }
 
