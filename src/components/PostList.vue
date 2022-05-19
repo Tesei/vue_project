@@ -2,7 +2,7 @@
 
     <section class="main__goods goods">
         <div class="goods__content">
-            <div class="goods__grid">
+            <div v-if="posts.length > 0" class="goods__grid">
 
                 <post-item 
                 v-for="post in posts" 
@@ -12,6 +12,7 @@
                 />
             
             </div>
+            <h3 v-else class="goods__text">Список товаров пуст</h3>
         </div>
     </section>
 </template>
@@ -57,6 +58,12 @@ export default {
 
 		// .goods__item
 		&__item {
+        }
+		// .goods__text
+		&__text {
+            color: #FF8484;
+            font-size: 2.4rem;
+            font-weight: 600;
         }
 	}
 	
