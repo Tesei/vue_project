@@ -7,12 +7,22 @@
 					<div class="header__column">
 						<h1 class="header__title">Добавление товара</h1>
 					</div>
+
 					<div class="header__column">
-							<my-select
-								v-model="selectedSort"
-								:options="sortOptions"
-								v-model:order ="selectedSortOrder"
-							/>							
+					<!-- Создание поисковой строки -->
+						<my-input
+							v-model="searchQuery"
+							placeholder="Поиск ..."
+							class="header__search"
+						/>
+					</div>
+
+					<div class="header__column">
+						<my-select
+							v-model="selectedSort"
+							:options="sortOptions"
+							v-model:order ="selectedSortOrder"
+						/>							
 					</div>
 				</div>
 			</div>
@@ -20,15 +30,18 @@
 		<main class="main">
 			<div class="main__content _container">
 				<div class="main__row">
-				
-					<post-form
-					@create="createPost"
-					/>
+					<div class="main__column main__column_left">
+						<post-form
+						@create="createPost"
+						/>
+					</div>
 					
-					<post-list 
-					v-bind:posts="sortedPosts"
-					@remove="removePost"
-					/> 
+					<div class="main__column main__column_right">
+						<post-list 
+						v-bind:posts="sortedAndSearchedPosts"
+						@remove="removePost"
+						/> 
+					</div>					
 
 				</div>
 			</div>
@@ -42,11 +55,12 @@
 import PostForm from "./components/PostForm";
 import PostList from "@/components/PostList";
 import MySelect from "@/components/UI/MySelect";
+import MyInput from "@/components/UI/MyInput";
 
 export default{
     // Регистрация компонентов
     components: {
-        PostList, PostForm, MySelect
+        PostList, PostForm, MySelect, MyInput
     },
 
     data(){
@@ -56,10 +70,15 @@ export default{
                {id: 2, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 2', body: '2 Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '12 000'},
                {id: 3, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 3', body: '1 Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '13 000'},
                {id: 4, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 4', body: '4 Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '14 000'},
+               {id: 5, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 4', body: '4 Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '14 000'},
+               {id: 6, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 4', body: '4 Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '14 000'},
+               {id: 7, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 4', body: '4 Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '14 000'},
+               {id: 8, image: 'https://tesei.github.io/sites/mockUp\'s/polaroid.jpg', title: 'Наименование товара 4', body: '4 Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', price: '14 000'},
            ],
         	// По умолчанию select будет та переменная которую мы назначили
 				selectedSort: "",
 				selectedSortOrder: "",
+				searchQuery:"",
 				sortOptions: [
 					{value: "title", name: "По названию"},
 					{value: "body", name: "По содержанию"},
@@ -80,6 +99,9 @@ export default{
         sortedPosts(){			
 			if(this.selectedSortOrder === 4) return [...this.posts].sort((post1,post2)=> post1[this.selectedSort]?.localeCompare(post2[this.selectedSort])).reverse()
             else return [...this.posts].sort((post1,post2)=> post1[this.selectedSort]?.localeCompare(post2[this.selectedSort]))
+        },
+        sortedAndSearchedPosts(){
+            return this.sortedPosts.filter(post => post.title.toLowerCase().includes(this.searchQuery.toLowerCase()))
         }
     },
 }
@@ -99,20 +121,25 @@ export default{
 		&__content {}
 
 		// .header__row
-		&__row {			
-			@media (min-width: 600px){
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
+		&__row {	
+				display: flex;
+				flex-direction: column;		
+
+			@media (min-width: $md3){
+				justify-content: space-between;
+				align-items: center;
+				flex-direction: row;	
 			}
 		}
 
 		// .header__column
 		&__column {
-			@media (max-width: 600px){
-				&:first-child{
-					margin-bottom: 16px;				
-				}			
+			@media (max-width: $md3){
+				&:first-child{					
+					order: 3;	
+					margin-bottom: 0;			
+				}	
+				margin-bottom: 15px;
 			}
 		}
 
@@ -123,6 +150,10 @@ export default{
 			font-size: 28px;
 			line-height: 35px;
 			color: #3F3F3F;
+			flex: 1 0 auto;
+			@media (max-width: $md3+px){
+				
+			}
 		}
 
 		// .header__input
@@ -132,6 +163,17 @@ export default{
 			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 			border-radius: 4px;
 			height: 36px;
+		}
+
+		// .header__search
+		&__search{
+			min-width: 250px;
+			margin: 10px 20px 10px 0px;
+			@media (max-width: $md2){
+				min-width: 200px;
+				margin: 0;
+				width: 100%;
+			}
 		}
 	}
 
@@ -147,6 +189,19 @@ export default{
 			align-items: flex-start;
 			justify-content: flex-start;
 			}			
+		}
+		// .main__column_left
+		&__column_left{
+			position: relative;
+			flex: 0 0 332px;
+			margin-right: 16px;	
+			@media (max-width: $md2){
+				flex: 0 0 252px;
+			}
+
+			@media (max-width:$md3){
+				margin: 0px 0px 16px 0px;				
+			}
 		}
 
 		// .main__goods

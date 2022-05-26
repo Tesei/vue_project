@@ -5,26 +5,32 @@
 
                 <div class="aside__forms">                
                     <div class="form__line">
-                        <label for="1" class="form__label">Наименование товара<span> *</span></label>
-                        <input v-model="post.title" id="1" autocomplete="off" type="text" name="form[]" data-error=""
-                            placeholder="" 
-                            data-value="Введите наименование товара"
-                            class="input _req">
+                        <label for="1" class="form__label form__label_req">Наименование товара</label>
+                        <!-- <my-input 
+                            v-model="post.title"
+                            id="1"
+                            type="text"  
+                            placeholder="Введите наименование товара"
+                            data-error="Поле является обязательным"
+                            class="input _req"
+                        /> -->
+                        <input v-model="post.title" id="1" autocomplete="off" type="text" name="form[]" data-error="Поле является обязательным"
+                            placeholder="Введите наименование товара"  data-value="" class="input _req">
                     </div>
                     <div class="form__line">
                         <label for="2" class="form__label">Описание товара</label>
                         <textarea v-model="post.body" id="2" autocomplete="off" name="form[]" placeholder="Введите описание товара"
-                            data-value="Введите описание товара" class="input"></textarea>
+                            data-value="" class="input"></textarea>
                     </div>
                     <div class="form__line">
-                        <label for="3" class="form__label">Ссылка на изображение товара<span> *</span></label>
-                        <input v-model="post.image" autocomplete="off" id="3" type="text" name="form[]" data-error="" placeholder="Введите ссылку"
-                            data-value="Введите ссылку" class="input _req">
-                    </div>
-                    <div class="form__line">
-                        <label for="4" class="form__label">Цена товара<span> *</span></label>
-                            <input v-model="post.price" oninput="this.value = this.value.replace(/[^\d.,]/g, '').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').trim();" id="4" autocomplete="off" type="text" name="form[]" data-error="Обязательное поле, только цифры" placeholder="Введите цену"
+                        <label for="3" class="form__label form__label_req">Ссылка на изображение товара</label>
+                        <input v-model="post.image" autocomplete="off" id="3" type="text" name="form[]" data-error="Поле является обязательным" placeholder="Введите ссылку"
                             data-value="" class="input _req">
+                    </div>
+                    <div class="form__line">
+                        <label for="4" class="form__label form__label_req">Цена товара</label>
+                            <input v-model="post.price" oninput="this.value = this.value.replace(/[^\d.,]/g, '').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').trim();" id="4" autocomplete="off" 
+                            type="text" name="form[]" data-error="Поле является обязательным" placeholder="Введите цену" data-value="" class="input _req">
                     </div>
                 </div>
 
@@ -79,16 +85,6 @@ export default {
 	.main {
 		// .main__aside
 		&__aside {
-			flex: 0 0 332px;
-			margin-right: 16px;	
-
-			@media (max-width: $md2){
-			flex: 0 0 252px;
-			}
-
-			@media (max-width:$md3){
-				margin: 0px 0px 16px 0px;				
-			}	
 		}		
 	}
 
@@ -100,12 +96,24 @@ export default {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		justify-content: center;
+		justify-content: center;         
+        width: 332px;
+        
+        @media (max-width: $md2){
+			width: 252px;
+		}
+        @media (max-width: $md3){
+            width: 100%;
+        }
+        @media (min-width:$md3){
+            position: fixed;
+        }
 
 		// .aside__content
 		&__content {
 			padding: 24px;
-			width: 100%;
+            width: 100%;
+			
 		}
 
 		// .aside__form

@@ -6,35 +6,45 @@
 	}
 	&__line {
 		margin-bottom: 18px;
+		position: relative;		
+	}
+	&__label {
+		font-style: normal;
+		font-weight: 400;
+		font-size: 1rem;
+		line-height: 1.257rem;
+		letter-spacing: -0.02em;
+		color:  #49485E;
+		margin-bottom: 5px;
+		display: inline-block;
 		position: relative;
-		label {
-			font-style: normal;
-			font-weight: 400;
-			font-size: 1rem;
-			line-height: 1.257rem;
-			letter-spacing: -0.02em;
-			color: #49485E;
-			margin-bottom: 5px;
-			display: block;
 
-			span{
-				color: #FF8484;
-			}			
-		}
+		&_req::after{			
+			content: '';
+			background-color: #FF8484;
+			position: absolute;
+			width: 4px;
+			height: 4px;
+			top: -1px;
+			right: -5px;
+			border-radius: 50%;					
+		}			
 	}
 	&__input {
+		position: relative;
 	}
 	&__button {
 	}
-	&__error {		
-		margin: -12px 0px 15px 0px;
+	&__error {	
+		position: absolute;
+		bottom: -16px;
+		left: 0;	
 		font-style: normal;
 			font-weight: 400;
 			font-size: 1.2rem;
-			line-height: 1.3rem;
+			line-height: 1.2rem;
 			letter-spacing: -0.02em;
-			color: darken(#FF8484, 15%);
-			
+			color: darken(#FF8484, 15%);			
 	}
 }
 
@@ -53,14 +63,12 @@ textarea {
 	}
 }
 .input {
-	border-radius: 0 !important;
 	display: block;
 	background: #FFFEFB;
 	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 	border-radius: 4px;
 	width: 100%;
-	padding: 10px 16px;
-	
+	padding: 10px 16px;	
 	font-style: normal;
 	font-weight: 400;
 	font-size: 1.2rem;
@@ -70,10 +78,11 @@ textarea {
 	align-items: flex-start;
 	justify-content: flex-start;
 	&:focus{
-		border: 1px solid green;
+		box-shadow: 0px 2px 5px rgba(0, 128, 0, 0.765);
 	}	
 
 	&._focus {		
+		color: #3F3F3F;
 	}
 	&._error {
 		border: 1px solid #FF8484;
