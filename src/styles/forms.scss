@@ -78,7 +78,7 @@ textarea {
 	align-items: flex-start;
 	justify-content: flex-start;
 	&:focus{
-		box-shadow: 0px 2px 5px rgba(0, 128, 0, 0.765);
+		box-shadow: 1px 3px 8px rgba(0, 128, 0, 0.3);
 	}	
 
 	&._focus {		
