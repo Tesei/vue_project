@@ -81,6 +81,9 @@ export default {
 	&__content {
 		border-radius: 4px 4px 4px 4px;
 		overflow: hidden;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
 	}
 
 	// .card__picture
@@ -101,12 +104,14 @@ export default {
 
 	// .card__about
 	&__about {
+		flex: 1 0 auto;
 		word-wrap: break-word;
 		color: #3F3F3F;
 		margin: 16px 24px;
-		height: 100%;
-		// display: grid;
 		max-width: 300px;
+
+		display: flex;
+		flex-direction: column;
 
 		@media (max-width: $md2) {
 			margin: 12px 18px;
@@ -131,7 +136,7 @@ export default {
 		font-size: 1.6rem;
 		line-height: 2rem;
 		margin-bottom: 32px;
-		flex: 1 1 auto;
+		flex: 1 0 auto;
 
 		@media (max-width: $md2) {
 			margin-bottom: 20px;

@@ -120,54 +120,6 @@ textarea.input {
 // 		display: flex;		
 // 		height: 15px;
 
-<<<<<<< HEAD
-		align-items: center;
-		justify-content: space-between;
-		flex-direction: row-reverse;
-		span {
-			height: 1em;
-			overflow: hidden;
-			display: -webkit-box;
-			-webkit-line-clamp: 1;
-			-webkit-box-orient: vertical;
-		}
-		&:before {
-			content: "";
-			display: inline-block;
-			transition: all 0.3s ease 0s;
-			width: 11px;
-			height: 7px;
-			// background: url("../images/icons/arrowSelect.svg") center / 100% no-repeat;
-		}
-	}
-	&__input {
-		width: 100%;
-		background-color: transparent;
-		height: 100%;
-	}
-	// .select__options
-	&__options {
-		color: darken(#B4B4B4, 20%);
-		position: absolute;
-		top: 29px;
-		border-radius: 0 0 4px 4px;
-		min-width: 100%;
-		left: 0;
-		border-top: 0;
-		border: 1px solid #d9d9d9;
-		border-top: 0;
-		background-color: #FFFEFB;
-		font-size: 1.2rem;
-		line-height: 1.5rem;
-		min-width: 100%;
-		padding: 10px 0px 5px 0px;
-	}
-	// .select__option
-	&__option {
-		cursor: pointer;
-		padding: 5px 10px;
-		margin: 0px 0px 0px 0px;
-=======
 // 		align-items: center;
 // 		justify-content: space-between;
 // 		flex-direction: row-reverse;
@@ -214,7 +166,6 @@ textarea.input {
 // 		cursor: pointer;
 // 		padding: 5px 10px;
 // 		margin: 0px 0px 0px 0px;
->>>>>>> newFeatches
 		
 // 		@media (min-width: 992px) {
 // 			&:hover {
