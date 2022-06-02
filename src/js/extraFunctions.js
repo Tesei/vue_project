@@ -2,7 +2,7 @@
 setTimeout(start, 300);
 function start() {
     
-    let arrInputs = document.querySelectorAll('input');
+    let arrInputs = document.querySelectorAll('.input._req');
     let btn = document.querySelector('.btn');
     let asidePanel = document.querySelector('aside');
     let form = document.querySelector('.aside__form');
@@ -15,12 +15,11 @@ function start() {
         let flag = true;
         for (let index = 0; index < arrInputs.length; index++) {
             const element = arrInputs[index];
-            if (!element.value) flag = false;
+            if (!element.value) flag = false;	
         }
         if (flag) btn.classList.add('_active');
         
         else btn.className = "aside__button btn";
-        
         setTimeout(checkValidForm, 500);
     }
 
