@@ -6,14 +6,6 @@
                 <div class="aside__forms">
                     <div class="form__line">
                         <label for="1" class="form__label form__label_req">Наименование товара</label>
-                        <!-- <my-input 
-                            v-model="post.title"
-                            id="1"
-                            type="text"  
-                            placeholder="Введите наименование товара"
-                            data-error="Поле является обязательным"
-                            class="input _req"
-                        /> -->
                         <input v-model="post.title" id="1" autocomplete="off" type="text" name="form[]"
                             data-error="Поле является обязательным" placeholder="Введите наименование товара"
                             data-value="" class="input _req">
