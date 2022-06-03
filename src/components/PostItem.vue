@@ -107,14 +107,13 @@ export default {
 		flex: 1 0 auto;
 		word-wrap: break-word;
 		color: #3F3F3F;
-		margin: 16px 24px;
+		padding: 16px 24px;
 		max-width: 300px;
-
 		display: flex;
 		flex-direction: column;
 
 		@media (max-width: $md2) {
-			margin: 12px 18px;
+			padding: 12px 18px;
 		}
 	}
 
