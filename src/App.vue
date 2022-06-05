@@ -17,7 +17,8 @@
 					</div>
 
 					<div class="header__column">
-						<my-select v-model="selectedSort" :options="sortOptions" v-model:order="selectedSortOrder" />
+						<my-select v-model="selectedSort" :options="sortOptions" v-model:order="selectedSortOrder"
+							class="header__select" />
 					</div>
 				</div>
 			</div>
@@ -111,7 +112,8 @@ export default {
 	// .header__row
 	&__row {
 		display: flex;
-		flex-direction: column;
+		// flex-direction: column;
+		flex-wrap: wrap;
 
 		@media (min-width: $md3) {
 			justify-content: space-between;
@@ -122,45 +124,67 @@ export default {
 
 	// .header__column
 	&__column {
+		align-self: flex-start;
+		margin-bottom: 15px;
+
 		@media (max-width: $md3) {
+			flex: 1 1 auto;
+			margin-right: 20px;
+
+			&:last-child {
+				margin-right: 0px;
+				margin-bottom: 0;
+			}
+		}
+
+		@media (max-width: 600px) {
 			&:first-child {
 				order: 3;
 				margin-bottom: 0;
 			}
 
-			margin-bottom: 15px;
+			&:last-child {
+				margin-bottom: 15px;
+			}
 		}
 	}
 
 	// .header__title
 	&__title {
+		display: inline-block;
 		font-style: normal;
 		font-weight: 600;
 		font-size: 28px;
 		line-height: 35px;
 		color: #3F3F3F;
 		flex: 1 0 auto;
+		// align-self: center;
 
 		@media (max-width: $md3) {}
 	}
 
-	// .header__input
-	&__input {
-		position: relative;
-		background: #FFFEFB;
-		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-		border-radius: 4px;
-		height: 36px;
+	// .header__select
+	&__select {
+		flex: 0 1 20%;
+		// margin: 10px 20px 10px 0px;
+
+		@media (max-width: $md2) {
+			// min-width: 200px;
+			// margin: 0;
+			// width: 100%;
+		}
 	}
 
 	// .header__search
 	&__search {
 		min-width: 250px;
-		margin: 10px 20px 10px 0px;
+		margin-top: -13px;
+		// align-self: center;
 
 		@media (max-width: $md2) {
 			min-width: 200px;
 			margin: 0;
+			margin-top: -13px;
 			width: 100%;
 		}
 	}
@@ -193,6 +217,11 @@ export default {
 		@media (max-width:$md3) {
 			margin: 0px 0px 16px 0px;
 		}
+	}
+
+	// .main__column_right
+	&__column_right {
+		flex: 1 1 auto;
 	}
 
 	// .main__goods
