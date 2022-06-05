@@ -10,7 +10,10 @@
 
 					<div class="header__column">
 						<!-- Создание поисковой строки -->
-						<my-input v-model="searchQuery" placeholder="Поиск ..." class="header__search" />
+						<!-- <my-input v-model="searchQuery" placeholder="Поиск ..." class="header__search" /> -->
+						<my-input v-model="searchQuery" :placeHolder="searchPlaceholder" :req="false"
+							class="header__search">
+						</my-input>
 					</div>
 
 					<div class="header__column">
@@ -64,6 +67,7 @@ export default {
 			selectedSort: "",
 			selectedSortOrder: "",
 			searchQuery: "",
+			searchPlaceholder: "Поиск ...",
 			sortOptions: [
 				{ value: "title", name: "По названию" },
 				{ value: "body", name: "По содержанию" },

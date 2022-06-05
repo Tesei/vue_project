@@ -5,16 +5,17 @@
             <slot></slot>
         </label>
 
-        <input type="text" class="input" :value="modelValue" @input="updateInput" :class="{ '_req': req }" :id="nameId"
-            autocomplete="off" name="form[]" data-value="" :placeholder="placeHolder" :data-error="dataError">
-
+        <textarea type="text" class="input" :value="modelValue" @input="updateInput" :class="{ '_req': req }"
+            :id="nameId" autocomplete="off" name="form[]" data-value="" :placeholder="placeHolder"
+            :data-error="dataError">
+        </textarea>
     </div>
 </template>
 
 
 <script>
 export default {
-    name: 'my-input',
+    name: 'my-textarea',
 
     props: {
         modelValue: [String, Number],

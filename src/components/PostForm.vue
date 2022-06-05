@@ -4,17 +4,40 @@
             <form class="aside__form form" @submit.prevent>
 
                 <div class="aside__forms">
-                    <div class="form__line">
+                    <my-input v-model="post.title" :nameId="1" :req="true" :placeHolder="placeholders[0]"
+                        :data-error="dataError">
+                        Наименование товара
+                    </my-input>
+
+                    <my-textarea v-model="post.body" :nameId="2" :req="false" :placeHolder="placeholders[1]"
+                        :data-error="dataError">
+                        Описание товара
+                    </my-textarea>
+
+
+                    <!-- <div class="form__line">
+                            <label for="2" class="form__label">Описание товара</label>
+                            <textarea v-model="post.body" id="2" autocomplete="off" name="form[]"
+                                placeholder="Введите описание товара" data-value="" class="input">/
+                        </div> -->
+
+                    <my-input v-model="post.image" :nameId="3" :req="true" :placeHolder="placeholders[2]"
+                        :data-error="dataError">
+                        Ссылка на изображение товара
+                    </my-input>
+                    <my-input v-model="post.price" :nameId="4" :req="true" :placeHolder="placeholders[3]"
+                        :data-error="dataError">
+                        Цена товара
+                    </my-input>
+
+
+                    <!-- <div class="form__line">
                         <label for="1" class="form__label form__label_req">Наименование товара</label>
                         <input v-model="post.title" id="1" autocomplete="off" type="text" name="form[]"
                             data-error="Поле является обязательным" placeholder="Введите наименование товара"
                             data-value="" class="input _req">
                     </div>
-                    <div class="form__line">
-                        <label for="2" class="form__label">Описание товара</label>
-                        <textarea v-model="post.body" id="2" autocomplete="off" name="form[]"
-                            placeholder="Введите описание товара" data-value="" class="input"></textarea>
-                    </div>
+                    
                     <div class="form__line">
                         <label for="3" class="form__label form__label_req">Ссылка на изображение товара</label>
                         <input v-model="post.image" autocomplete="off" id="3" type="text" name="form[]"
@@ -27,12 +50,10 @@
                             oninput="this.value = this.value.replace(/[^\d.,]/g, '').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').trim();"
                             id="4" autocomplete="off" type="text" name="form[]" data-error="Поле является обязательным"
                             placeholder="Введите цену" data-value="" class="input _req">
-                    </div>
+                    </div> -->
                 </div>
 
-                <div class="button">
-                    <button @click="createPost" type="submit" class="aside__button btn">Добавить товар</button>
-                </div>
+                <my-button @click="createPost" class="aside__button">Добавить товар</my-button>
             </form>
         </div>
     </aside>
@@ -49,7 +70,14 @@ export default {
                 body: '',
                 image: '',
                 price: ''
-            }
+            },
+            placeholders: [
+                'Введите наименование товара',
+                'Введите описание товара',
+                'Введите ссылку',
+                'Введите цену'
+            ],
+            dataError: "Поле является обязательным"
         }
     },
     methods: {
