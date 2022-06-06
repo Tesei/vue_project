@@ -10,7 +10,6 @@
 
 					<div class="header__column">
 						<!-- Создание поисковой строки -->
-						<!-- <my-input v-model="searchQuery" placeholder="Поиск ..." class="header__search" /> -->
 						<my-input v-model="searchQuery" :placeHolder="searchPlaceholder" :req="false"
 							class="header__search">
 						</my-input>
@@ -158,28 +157,17 @@ export default {
 		line-height: 35px;
 		color: #3F3F3F;
 		flex: 1 0 auto;
-		// align-self: center;
-
-		@media (max-width: $md3) {}
 	}
 
 	// .header__select
 	&__select {
 		flex: 0 1 20%;
-		// margin: 10px 20px 10px 0px;
-
-		@media (max-width: $md2) {
-			// min-width: 200px;
-			// margin: 0;
-			// width: 100%;
-		}
 	}
 
 	// .header__search
 	&__search {
 		min-width: 250px;
 		margin-top: -13px;
-		// align-self: center;
 
 		@media (max-width: $md2) {
 			min-width: 200px;
