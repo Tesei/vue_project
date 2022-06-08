@@ -4,22 +4,22 @@
             <form class="aside__form form" @submit.prevent>
 
                 <div class="aside__forms">
-                    <my-input v-model="post.title" :nameId="1" :req="true" :placeHolder="placeholders[0]"
+                    <my-input v-model.trim="post.title" :nameId="1" :req="true" :placeHolder="placeholders[0]"
                         :data-error="dataError" class="aside__forms-item">
                         Наименование товара
                     </my-input>
 
-                    <my-textarea v-model="post.body" :nameId="2" :req="false" :placeHolder="placeholders[1]"
+                    <my-textarea v-model.trim="post.body" :nameId="2" :req="false" :placeHolder="placeholders[1]"
                         :data-error="dataError" class="aside__forms-item">
                         Описание товара
                     </my-textarea>
 
-                    <my-input v-model="post.image" :nameId="3" :req="true" :placeHolder="placeholders[2]"
+                    <my-input v-model.trim="post.image" :nameId="3" :req="true" :placeHolder="placeholders[2]"
                         :data-error="dataError" class="aside__forms-item">
                         Ссылка на изображение товара
                     </my-input>
-                    <my-input v-model="post.price" :nameId="4" :req="true" :placeHolder="placeholders[3]"
-                        :data-error="dataError" class="aside__forms-item">
+                    <my-input v-model.trim="somePrice" :nameId="4" :req="true" :placeHolder="placeholders[3]"
+                        :data-error="dataError" :oninpShow="true" class="aside__forms-item">
                         Цена товара
                     </my-input>
 
@@ -42,6 +42,7 @@ export default {
                 image: '',
                 price: ''
             },
+            somePrice: '',
             placeholders: [
                 'Введите наименование товара',
                 'Введите описание товара',
@@ -49,6 +50,19 @@ export default {
                 'Введите цену'
             ],
             dataError: "Поле является обязательным"
+        }
+    },
+    watch: {
+        // post: {
+        //     price(newPrice) {
+        //         // console.log(newPrice);
+        //         // this.post.price = this.post.price.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('');
+        //         console.log(newPrice.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join(''));
+        //     },
+        //     deep: true
+        // }
+        somePrice(newPrice) {
+            this.post.price = newPrice.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('');
         }
     },
     methods: {
@@ -66,7 +80,8 @@ export default {
                         body: '',
                         image: '',
                         price: ''
-                    }
+                    },
+                        this.somePrice = '';
                 }, 300)
             }
         },

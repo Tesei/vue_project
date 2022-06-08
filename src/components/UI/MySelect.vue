@@ -12,7 +12,6 @@
 
 <script>
 export default {
-    // указываем имя компонента, для его индентификации по-тегу
     name: 'my-select',
     props: {
         modelValue: { type: String },

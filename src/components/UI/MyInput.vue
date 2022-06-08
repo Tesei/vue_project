@@ -5,8 +5,13 @@
             <slot></slot>
         </label>
 
-        <input type="text" class="input" :value="modelValue" @input="updateInput" :class="{ '_req': req }" :id="nameId"
-            autocomplete="off" name="form[]" data-value="" :placeholder="placeHolder" :data-error="dataError">
+        <input v-if="oninpShow" type="text" class="input" :value="modelValue" @input="updateInput"
+            :class="{ '_req': req }" :id="nameId" autocomplete="off" name="form[]" data-value=""
+            :placeholder="placeHolder" :data-error="dataError"
+            oninput="this.value = this.value.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('')">
+        <input v-else type="text" class="input" :value="modelValue" @input="updateInput" :class="{ '_req': req }"
+            :id="nameId" autocomplete="off" name="form[]" data-value="" :placeholder="placeHolder"
+            :data-error="dataError">
 
     </div>
 </template>
@@ -34,6 +39,10 @@ export default {
         dataError: {
             type: [String, Number],
             default: () => ''
+        },
+        oninpShow: {
+            type: [Boolean],
+            default: false
         },
     },
     methods: {
