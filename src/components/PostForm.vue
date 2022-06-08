@@ -34,7 +34,6 @@
 <script>
 
 export default {
-
     data() {
         return {
             post: {
@@ -54,7 +53,7 @@ export default {
     },
     methods: {
         createPost() {
-            let btnSend = document.querySelector('.btn');
+            let btnSend = document.querySelector('.aside__form .btn');
             if (btnSend.classList.contains("_active")) {
 
                 this.post.id = Date.now();
@@ -98,14 +97,7 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/index.scss';
 
-.main {
-
-    // .main__aside
-    &__aside {}
-}
-
 .aside {
-
     background: #FFFEFB;
     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
     border-radius: 4px;
@@ -123,15 +115,10 @@ export default {
         width: 100%;
     }
 
-    @media (min-width:$md3) {
-        position: fixed;
-    }
-
     // .aside__content
     &__content {
         padding: 24px;
         width: 100%;
-
     }
 
     // .aside__form

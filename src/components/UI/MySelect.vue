@@ -35,6 +35,8 @@ export default {
 <style lang="scss" scoped>
 .select {
     &__item {
+        width: 100%;
+
         position: relative;
         cursor: pointer;
         padding: 10px 27px 10px 16px;

@@ -11,7 +11,12 @@
 
 export default {
     name: 'my-button',
-
+    props: {
+        ac: {
+            type: Boolean,
+            default: false
+        }
+    }
 }
 </script>
 

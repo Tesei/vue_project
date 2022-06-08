@@ -26,7 +26,16 @@
 			<div class="main__content _container">
 				<div class="main__row">
 					<div class="main__column main__column_left">
-						<post-form @create="createPost" />
+						<div class="main__column-left-contant">
+							<my-button @click="openForm" class="main__btn btn-open-form">{{ buttonFormOpenMessage
+									? 'Закрыть форму' : 'Открыть форму'
+							}}
+							</my-button>
+							<my-dialog :show="dialogVisible" :noActivated="animationDialog">
+								<post-form @create="createPost" />
+							</my-dialog>
+						</div>
+
 					</div>
 
 					<div class="main__column main__column_right">
@@ -68,6 +77,9 @@ export default {
 			selectedSortOrder: "",
 			searchQuery: "",
 			searchPlaceholder: "Поиск ...",
+			dialogVisible: true,
+			animationDialog: false,
+			buttonFormOpenMessage: true,
 			sortOptions: [
 				{ value: "title", name: "По названию" },
 				{ value: "body", name: "По содержанию" },
@@ -82,6 +94,15 @@ export default {
 		},
 		removePost(post) {
 			this.posts = this.posts.filter(p => p.id !== post.id)
+		},
+		openForm() {
+			if (this.dialogVisible) {
+				setTimeout(() => { this.dialogVisible = false }, 400);
+				this.animationDialog = this.buttonFormOpenMessage = false;
+			}
+			else {
+				this.dialogVisible = this.animationDialog = this.buttonFormOpenMessage = true;
+			}
 		}
 	},
 	computed: {
@@ -111,8 +132,9 @@ export default {
 	// .header__row
 	&__row {
 		display: flex;
-		// flex-direction: column;
 		flex-wrap: wrap;
+		margin-right: -10px;
+		margin-left: -10px;
 
 		@media (min-width: $md3) {
 			justify-content: space-between;
@@ -125,13 +147,13 @@ export default {
 	&__column {
 		align-self: flex-start;
 		margin-bottom: 15px;
+		margin-right: 10px;
+		margin-left: 10px;
 
 		@media (max-width: $md3) {
 			flex: 1 1 auto;
-			margin-right: 20px;
 
 			&:last-child {
-				margin-right: 0px;
 				margin-bottom: 0;
 			}
 		}
@@ -161,7 +183,7 @@ export default {
 
 	// .header__select
 	&__select {
-		flex: 0 1 20%;
+		flex: 0 1 30%;
 	}
 
 	// .header__search
@@ -185,6 +207,8 @@ export default {
 
 	// main__row
 	&__row {
+		position: relative;
+
 		@media (min-width:$md3) {
 			display: flex;
 			align-items: flex-start;
@@ -207,6 +231,13 @@ export default {
 		}
 	}
 
+	// main__column-left-contant
+	&__column-left-contant {
+		@media (min-width:$md3) {
+			position: fixed;
+		}
+	}
+
 	// .main__column_right
 	&__column_right {
 		flex: 1 1 auto;
@@ -214,5 +245,24 @@ export default {
 
 	// .main__goods
 	&__goods {}
+
+	// .main__btn
+	&__btn {
+		margin-bottom: 25px;
+		width: 332px;
+
+		@media (max-width: $md2) {
+			width: 252px;
+		}
+
+		@media (max-width: $md3) {
+			width: 100%;
+		}
+
+		button.btn {
+			color: #FFFFFF;
+			background: #7BAE73;
+		}
+	}
 }
 </style>

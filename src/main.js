@@ -11,6 +11,7 @@ components.forEach(component => {
     app.component(component.name, component);
 });
 
+// todo Зарегистрировать файл как положено - компонента JS другой
 scriptsJS.forEach(script => {
     app.component(script.name, script);
 });

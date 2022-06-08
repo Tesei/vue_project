@@ -19,7 +19,7 @@ export default {
     props: {
         modelValue: [String, Number],
         nameId: {
-            type: String, Number,
+            type: [String, Number],
             default: () => ''
         },
         req: {
@@ -28,11 +28,11 @@ export default {
             default: () => ""
         },
         placeHolder: {
-            type: String, Number,
+            type: [String, Number],
             default: () => ''
         },
         dataError: {
-            type: String, Number,
+            type: [String, Number],
             default: () => ''
         },
     },
