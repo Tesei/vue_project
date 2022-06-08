@@ -42,6 +42,7 @@ export default {
                 image: '',
                 price: ''
             },
+            // todo Посмотреть переделку
             somePrice: '',
             placeholders: [
                 'Введите наименование товара',
@@ -53,14 +54,6 @@ export default {
         }
     },
     watch: {
-        // post: {
-        //     price(newPrice) {
-        //         // console.log(newPrice);
-        //         // this.post.price = this.post.price.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('');
-        //         console.log(newPrice.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join(''));
-        //     },
-        //     deep: true
-        // }
         somePrice(newPrice) {
             this.post.price = newPrice.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('');
         }
@@ -81,6 +74,7 @@ export default {
                         image: '',
                         price: ''
                     },
+                        // todo Посмотреть переделку
                         this.somePrice = '';
                 }, 300)
             }
