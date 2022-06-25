@@ -31,7 +31,7 @@
 									? 'Закрыть форму' : 'Открыть форму'
 							}}
 							</my-button>
-							<my-dialog :show="dialogVisible" :noActivated="animationDialog">
+							<my-dialog :show="dialogVisible" :showForm="animationDialog">
 								<post-form @create="createPost" />
 							</my-dialog>
 						</div>
@@ -78,7 +78,7 @@ export default {
 			searchQuery: "",
 			searchPlaceholder: "Поиск ...",
 			dialogVisible: true,
-			animationDialog: false,
+			animationDialog: true,
 			buttonFormOpenMessage: true,
 			sortOptions: [
 				{ value: "title", name: "По названию" },

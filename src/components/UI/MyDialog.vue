@@ -1,8 +1,12 @@
 <template>
     <div class="wrap-dialog">
-        <div v-show="show === true" :class="{ 'animation-left': noActivated, 'animation-right': !noActivated }">
-            <slot></slot>
-        </div>
+
+        <transition name="slide-fade">
+            <div v-show="showForm">
+                <slot></slot>
+            </div>
+        </transition>
+
     </div>
 
 </template>
@@ -13,11 +17,7 @@
 export default {
     name: 'my-dialog',
     props: {
-        show: {
-            type: Boolean,
-            default: false
-        },
-        noActivated: {
+        showForm: {
             type: Boolean,
         },
     },
@@ -26,35 +26,17 @@ export default {
 
 
 <style scoped lang="scss">
-.animation-left {
-    animation: ani-left 0.4s ease-out;
+.slide-fade-enter-active {
+    transition: all 0.3s ease-out;
 }
 
-.animation-right {
-    animation: ani-right 0.4s ease-in;
+.slide-fade-leave-active {
+    transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
-@keyframes ani-left {
-    from {
-        transform: translate(-100%, 0);
-        opacity: 0;
-    }
-
-    to {
-        transform: translate(0, 0);
-        opacity: 1;
-    }
-}
-
-@keyframes ani-right {
-    from {
-        transform: translate(0, 0);
-        opacity: 1;
-    }
-
-    to {
-        transform: translate(-100%, 0);
-        opacity: 0;
-    }
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    transform: translateX(-20px);
+    opacity: 0;
 }
 </style>

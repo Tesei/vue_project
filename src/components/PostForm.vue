@@ -54,6 +54,12 @@ export default {
         }
     },
     watch: {
+        // post: {
+        //     handler(newPrice) {
+        //         this.post.price = newPrice.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('');
+        //     },
+        //     deep: true
+        // },
         somePrice(newPrice) {
             this.post.price = newPrice.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('');
         }
