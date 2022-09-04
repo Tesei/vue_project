@@ -54,8 +54,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles/forms.scss';
-
 input[type="text"],
 input[type="email"],
 input[type="tel"],

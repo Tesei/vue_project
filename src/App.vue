@@ -27,8 +27,8 @@
 				<div class="main__row">
 					<div class="main__column main__column_left">
 						<div class="main__column-left-contant">
-							<my-button @click="openForm" class="main__btn btn-open-form">{{ buttonFormOpenMessage
-									? 'Закрыть форму' : 'Открыть форму'
+							<my-button @click="openForm" class="main__btn" id>{{ buttonFormOpenMessage
+							? 'Закрыть форму' : 'Открыть форму'
 							}}
 							</my-button>
 							<my-dialog :show="dialogVisible" :showForm="animationDialog">
@@ -38,10 +38,8 @@
 
 					</div>
 
-					<div class="main__column main__column_right">
-						<post-list v-bind:posts="sortedAndSearchedPosts" @remove="removePost" />
-					</div>
-
+					<post-list v-bind:posts="sortedAndSearchedPosts" @remove="removePost"
+						class="main__column main__column_right" />
 				</div>
 			</div>
 		</main>
@@ -119,8 +117,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import './styles/index.scss';
-
 #app {}
 
 .header {
@@ -189,12 +185,12 @@ export default {
 	// .header__search
 	&__search {
 		min-width: 250px;
-		margin-top: -13px;
+		margin-top: -14px !important;
 
 		@media (max-width: $md2) {
 			min-width: 200px;
 			margin: 0;
-			margin-top: -13px;
+			margin-top: -14px;
 			width: 100%;
 		}
 	}
@@ -248,7 +244,7 @@ export default {
 
 	// .main__btn
 	&__btn {
-		margin-bottom: 25px;
+		margin-bottom: 25px !important;
 		width: 332px;
 
 		@media (max-width: $md2) {

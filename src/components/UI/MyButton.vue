@@ -22,8 +22,6 @@ export default {
 
 
 <style lang="scss" scoped>
-@import '@/styles/_variables.scss';
-
 .btn {
     display: flex;
     justify-content: center;
