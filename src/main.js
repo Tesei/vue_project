@@ -6,12 +6,11 @@ import scriptsJS from '@/js';
 
 const app = createApp(App);
 
-// app.component регистрация глобального компонента, чтобы не экспортировать его каждый раз в отдельных компонентах
 components.forEach(component => {
     app.component(component.name, component);
 });
 
-// todo Зарегистрировать файл как положено - компонента JS другой
+
 scriptsJS.forEach(script => {
     app.component(script.name, script);
 });

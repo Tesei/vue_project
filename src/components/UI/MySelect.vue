@@ -1,5 +1,4 @@
 <template>
-    <!-- v-model="modelValue" связывается с родительским v-model="selectedSort" -->
     <select class="select__item" v-model="modelValue" :order="order" @change="changeOption">
         <option class="select__option-default" disabled value="">Выберете из списка</option>
         <option class="select__option" v-for="option in options" :key="option.value" :value="option.value" value="">

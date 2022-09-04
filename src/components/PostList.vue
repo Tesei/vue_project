@@ -9,7 +9,7 @@
                 </transition-group>
 
             </div>
-            <h3 v-else class="goods__text">Список товаров пуст</h3>
+            <span v-else class="goods__text">Список товаров пуст</span>
         </div>
     </section>
 </template>
