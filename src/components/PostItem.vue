@@ -11,9 +11,9 @@
 				<img :src="post.image" alt="Изображние товара" class="card__img">
 			</div>
 			<div class="card__about">
-				<h3 class="card__title">{{ post.title }}</h3>
-				<h4 class="card__text">{{ post.body }}</h4>
-				<h5 class="card__price">{{ post.price }} <span> руб.</span></h5>
+				<span class="card__title">{{ post.title }}</span>
+				<span class="card__text">{{ post.body }}</span>
+				<span class="card__price">{{ post.price }} <span> руб.</span></span>
 			</div>
 		</div>
 	</article>
