@@ -6,13 +6,15 @@
         </label>
 
         <input v-if="oninpShow" type="text" class="input" :value="modelValue" @input="updateInput"
-            :class="{ '_req': req, '_active': checkDataValue }" :id="nameId" autocomplete="off" name="form[]"
-            data-value="" :placeholder="placeHolder" :data-error="dataError"
+            :class="{ '_req': req, '_active': checkDataValue, '_error': showError }" :id="nameId" autocomplete="off"
+            name="form[]" data-value="" :placeholder="placeHolder" :data-error="dataError"
             oninput="this.value = this.value.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('')">
-        <input v-else type="text" class="input" :value="modelValue" @input="updateInput" :class="{ '_req': req }"
-            :id="nameId" autocomplete="off" name="form[]" data-value="" :placeholder="placeHolder"
-            :data-error="dataError">
 
+        <input v-else type="text" class="input" :value="modelValue" @input="updateInput"
+            :class="{ '_req': req, '_active': checkDataValue, '_error': showError }" :id="nameId" autocomplete="off"
+            name="form[]" data-value="" :placeholder="placeHolder" :data-error="dataError">
+
+        <div v-if="showError" class="form__error">{{ dataError }}</div>
     </div>
 </template>
 
@@ -44,22 +46,25 @@ export default {
             type: [Boolean],
             default: false
         },
-    },
-    data() {
-        return {
-            // haveData: false,
-        }
+        clickButton: {
+            type: [Boolean, String],
+            default: false
+        },
     },
     methods: {
         updateInput(event) {
             this.$emit('update:modelValue', event.target.value)
-        }
+        },
     },
     computed: {
         checkDataValue() {
             if (this.modelValue) return true;
             else return false;
-        }
+        },
+        showError() {
+            if (this.clickButton && this.modelValue == false) return true;
+            else return false;
+        },
     }
 }
 </script>

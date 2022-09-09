@@ -21,6 +21,7 @@ import PostItem from "@/components/PostItem";
 export default {
     // Регистрация компонентов
     components: { PostItem },
+    name: 'post-list',
 
     props: {
         posts: {

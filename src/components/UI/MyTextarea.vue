@@ -36,12 +36,16 @@ export default {
             type: [String, Number],
             default: () => ''
         },
+        clickButton: {
+            type: [Boolean, String],
+            default: false
+        },
     },
     methods: {
         updateInput(event) {
             this.$emit('update:modelValue', event.target.value)
         }
-    }
+    },
 }
 </script>
 

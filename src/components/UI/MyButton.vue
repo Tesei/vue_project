@@ -14,7 +14,6 @@ export default {
     props: {
         hasAllData: {
             type: Boolean,
-            default: false
         }
     }
 }
