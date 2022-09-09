@@ -25,7 +25,8 @@
 
                 </div>
 
-                <my-button @click="createPost" class="aside__button">Добавить товар</my-button>
+                <my-button @click="createPost" :hasAllData="checkAllData" class="aside__button">Добавить товар
+                </my-button>
             </form>
         </div>
     </aside>
@@ -56,6 +57,12 @@ export default {
     watch: {
         somePrice(newPrice) {
             this.post.price = newPrice.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('');
+        }
+    },
+    computed: {
+        checkAllData() {
+            if (this.post.title && this.post.image && this.post.price) return true;
+            else return false
         }
     },
     methods: {
@@ -99,7 +106,7 @@ export default {
             }
             return output;
         }
-    },
+    }
 }
 </script>
 

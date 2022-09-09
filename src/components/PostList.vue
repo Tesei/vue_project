@@ -18,9 +18,9 @@
 // Подключаем компоненты
 import PostItem from "@/components/PostItem";
 
-export default {    
+export default {
     // Регистрация компонентов
-    components: {PostItem},
+    components: { PostItem },
 
     props: {
         posts: {
@@ -58,7 +58,7 @@ export default {
 
     // .goods__text
     &__text {
-        color: #FF8484;
+        // color: #FF8484;
         font-size: 2.4rem;
         font-weight: 600;
     }

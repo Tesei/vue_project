@@ -6,8 +6,8 @@
         </label>
 
         <input v-if="oninpShow" type="text" class="input" :value="modelValue" @input="updateInput"
-            :class="{ '_req': req }" :id="nameId" autocomplete="off" name="form[]" data-value=""
-            :placeholder="placeHolder" :data-error="dataError"
+            :class="{ '_req': req, '_active': checkDataValue }" :id="nameId" autocomplete="off" name="form[]"
+            data-value="" :placeholder="placeHolder" :data-error="dataError"
             oninput="this.value = this.value.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('')">
         <input v-else type="text" class="input" :value="modelValue" @input="updateInput" :class="{ '_req': req }"
             :id="nameId" autocomplete="off" name="form[]" data-value="" :placeholder="placeHolder"
@@ -45,9 +45,20 @@ export default {
             default: false
         },
     },
+    data() {
+        return {
+            // haveData: false,
+        }
+    },
     methods: {
         updateInput(event) {
             this.$emit('update:modelValue', event.target.value)
+        }
+    },
+    computed: {
+        checkDataValue() {
+            if (this.modelValue) return true;
+            else return false;
         }
     }
 }

@@ -1,6 +1,6 @@
 <template>
     <div class="button">
-        <button type="submit" class="btn">
+        <button type="submit" class="btn" :class="{'_active': hasAllData }">
             <slot></slot>
         </button>
     </div>
@@ -12,7 +12,7 @@
 export default {
     name: 'my-button',
     props: {
-        ac: {
+        hasAllData: {
             type: Boolean,
             default: false
         }
