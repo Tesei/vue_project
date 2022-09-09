@@ -46,7 +46,6 @@ export default {
                 image: '',
                 price: ''
             },
-            // todo Посмотреть переделку
             somePrice: '',
             placeholders: [
                 'Введите наименование товара',

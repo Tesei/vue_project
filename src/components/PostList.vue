@@ -59,7 +59,6 @@ export default {
 
     // .goods__text
     &__text {
-        // color: #FF8484;
         font-size: 2.4rem;
         font-weight: 600;
     }
