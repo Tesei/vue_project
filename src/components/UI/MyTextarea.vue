@@ -12,7 +12,7 @@
         <textarea
             type="text"
             class="input"
-            :value="modelValue"
+            :value="modelValue.trim()"
             @input="updateInput"
             :class="{ '_req': req }"
             :id="nameId"

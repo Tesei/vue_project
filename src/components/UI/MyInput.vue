@@ -22,14 +22,14 @@
             data-value=""
             :placeholder="placeHolder"
             :data-error="dataError"
-            oninput="this.value = this.value.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('')"
+            oninput="this.value = this.value.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('').trim()"
         >
 
         <input
             v-else
             type="text"
             class="input"
-            :value="modelValue"
+            :value="modelValue.trim()"
             @input="updateInput"
             :class="{ '_req': req, '_active': checkDataValue, '_error': showError }"
             :id="nameId"
@@ -84,6 +84,7 @@ export default {
         updateInput(event) {
             this.$emit('update:modelValue', event.target.value)
         },
+
     },
     computed: {
         checkDataValue() {
