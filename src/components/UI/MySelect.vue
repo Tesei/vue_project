@@ -1,7 +1,21 @@
 <template>
-    <select class="select__item" v-model="modelValue" :order="order" @change="changeOption">
-        <option class="select__option-default" disabled value="">Выберете из списка</option>
-        <option class="select__option" v-for="option in options" :key="option.value" :value="option.value" value="">
+    <select
+        class="select__item"
+        v-model="modelValue"
+        :order="order"
+        @change="changeOption"
+    >
+        <option
+            class="select__option-default"
+            disabled
+            value=""
+        >Выберете из списка</option>
+        <option
+            class="select__option"
+            v-for="option in options"
+            :key="option.value"
+            :value="option.value"
+        >
             {{ option.name }}
         </option>
     </select>

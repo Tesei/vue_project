@@ -1,32 +1,66 @@
 <template>
     <aside class="main__aside aside">
         <div class="aside__content">
-            <form class="aside__form form" @submit.prevent>
+            <form
+                class="aside__form form"
+                @submit.prevent
+            >
 
                 <div class="aside__forms">
-                    <my-input v-model.trim="post.title" :nameId="1" :req="true" :clickButton="clickButton"
-                        :placeHolder="placeholders[0]" :data-error="dataError" class="aside__forms-item">
+                    <my-input
+                        v-model.trim="post.title"
+                        :nameId="1"
+                        :req="true"
+                        :clickButton="clickButton"
+                        :placeHolder="placeholders[0]"
+                        :data-error="dataError"
+                        class="aside__forms-item"
+                    >
                         Наименование товара
                     </my-input>
 
-                    <my-textarea v-model.trim="post.body" :nameId="2" :req="false" :placeHolder="placeholders[1]"
-                        :data-error="dataError" class="aside__forms-item">
+                    <my-textarea
+                        v-model.trim="post.body"
+                        :nameId="2"
+                        :req="false"
+                        :placeHolder="placeholders[1]"
+                        :data-error="dataError"
+                        class="aside__forms-item"
+                    >
                         Описание товара
                     </my-textarea>
 
-                    <my-input v-model.trim="post.image" :nameId="3" :req="true" :clickButton="clickButton"
-                        :placeHolder="placeholders[2]" :data-error="dataError" class="aside__forms-item">
+                    <my-input
+                        v-model.trim="post.image"
+                        :nameId="3"
+                        :req="true"
+                        :clickButton="clickButton"
+                        :placeHolder="placeholders[2]"
+                        :data-error="dataError"
+                        class="aside__forms-item"
+                    >
                         Ссылка на изображение товара
                     </my-input>
-                    <my-input v-model.trim="somePrice" :nameId="4" :req="true" :clickButton="clickButton"
-                        :placeHolder="placeholders[3]" :data-error="dataError" :oninpShow="true"
-                        class="aside__forms-item">
+                    <my-input
+                        v-model.trim="somePrice"
+                        :nameId="4"
+                        :req="true"
+                        :clickButton="clickButton"
+                        :placeHolder="placeholders[3]"
+                        :data-error="dataError"
+                        :oninpShow="true"
+                        class="aside__forms-item"
+                    >
                         Цена товара
                     </my-input>
 
                 </div>
 
-                <my-button @click="createPost" :hasAllData="checkAllData" class="aside__button">
+                <my-button
+                    @click="createPost"
+                    :hasAllData="checkAllData"
+                    class="aside__button"
+                >
                     Добавить товар
                 </my-button>
             </form>

@@ -1,13 +1,27 @@
 <template>
     <div class="form__line">
 
-        <label :for="nameId" class="form__label" :class="{ 'form__label_req': req }">
+        <label
+            :for="nameId"
+            class="form__label"
+            :class="{ 'form__label_req': req }"
+        >
             <slot></slot>
         </label>
 
-        <textarea type="text" class="input" :value="modelValue" @input="updateInput" :class="{ '_req': req }"
-            :id="nameId" autocomplete="off" name="form[]" data-value="" :placeholder="placeHolder"
-            :data-error="dataError">
+        <textarea
+            type="text"
+            class="input"
+            :value="modelValue"
+            @input="updateInput"
+            :class="{ '_req': req }"
+            :id="nameId"
+            autocomplete="off"
+            name="form[]"
+            data-value=""
+            :placeholder="placeHolder"
+            :data-error="dataError"
+        >
         </textarea>
     </div>
 </template>

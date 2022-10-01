@@ -1,20 +1,49 @@
 <template>
     <div class="form__line">
 
-        <label :for="nameId" class="form__label" :class="{ 'form__label_req': req }">
+        <label
+            :for="nameId"
+            class="form__label"
+            :class="{ 'form__label_req': req }"
+        >
             <slot></slot>
         </label>
 
-        <input v-if="oninpShow" type="text" class="input" :value="modelValue" @input="updateInput"
-            :class="{ '_req': req, '_active': checkDataValue, '_error': showError }" :id="nameId" autocomplete="off"
-            name="form[]" data-value="" :placeholder="placeHolder" :data-error="dataError"
-            oninput="this.value = this.value.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('')">
+        <input
+            v-if="oninpShow"
+            type="text"
+            class="input"
+            :value="modelValue"
+            @input="updateInput"
+            :class="{ '_req': req, '_active': checkDataValue, '_error': showError }"
+            :id="nameId"
+            autocomplete="off"
+            name="form[]"
+            data-value=""
+            :placeholder="placeHolder"
+            :data-error="dataError"
+            oninput="this.value = this.value.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('')"
+        >
 
-        <input v-else type="text" class="input" :value="modelValue" @input="updateInput"
-            :class="{ '_req': req, '_active': checkDataValue, '_error': showError }" :id="nameId" autocomplete="off"
-            name="form[]" data-value="" :placeholder="placeHolder" :data-error="dataError">
+        <input
+            v-else
+            type="text"
+            class="input"
+            :value="modelValue"
+            @input="updateInput"
+            :class="{ '_req': req, '_active': checkDataValue, '_error': showError }"
+            :id="nameId"
+            autocomplete="off"
+            name="form[]"
+            data-value=""
+            :placeholder="placeHolder"
+            :data-error="dataError"
+        >
 
-        <div v-if="showError" class="form__error">{{ dataError }}</div>
+        <div
+            v-if="showError"
+            class="form__error"
+        >{{ dataError }}</div>
     </div>
 </template>
 
@@ -32,7 +61,7 @@ export default {
         req: {
             type: Boolean,
             required: true,
-            default: () => ""
+            default: false,
         },
         placeHolder: {
             type: [String, Number],

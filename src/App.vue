@@ -53,6 +53,7 @@ import PostForm from "./components/PostForm";
 import PostList from "@/components/PostList";
 
 export default {
+	name: 'App',
 	// Регистрация компонентов
 	components: {
 		PostList, PostForm,

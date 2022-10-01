@@ -1,6 +1,10 @@
 <template>
     <div class="button">
-        <button type="submit" class="btn" :class="{'_active': hasAllData }">
+        <button
+            type="submit"
+            class="btn"
+            :class="{'_active': hasAllData }"
+        >
             <slot></slot>
         </button>
     </div>

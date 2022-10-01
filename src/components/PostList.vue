@@ -2,14 +2,25 @@
 
     <section class="main__goods goods">
         <div class="goods__content">
-            <div v-if="posts.length > 0" class="goods__grid">
+            <div
+                v-if="posts.length > 0"
+                class="goods__grid"
+            >
 
                 <transition-group name="post-list">
-                    <post-item v-for="post in posts" :post="post" :key="post.id" @remove="$emit('remove', post)" />
+                    <post-item
+                        v-for="post in posts"
+                        :post="post"
+                        :key="post.id"
+                        @remove="$emit('remove', post)"
+                    />
                 </transition-group>
 
             </div>
-            <span v-else class="goods__text">Список товаров пуст</span>
+            <span
+                v-else
+                class="goods__text"
+            >Список товаров пуст</span>
         </div>
     </section>
 </template>

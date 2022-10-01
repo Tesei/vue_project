@@ -1,14 +1,25 @@
 <template>
 
 	<article class="goods__item card">
-		<div class="card__bucket" @click="$emit('remove', post)">
+		<div
+			class="card__bucket"
+			@click="$emit('remove', post)"
+		>
 			<div class="card__bucket-picture">
-				<img src="../images/icons/bucket.svg" alt="Удалить товар" class="card__bucketImage">
+				<img
+					src="../images/icons/bucket.svg"
+					alt="Удалить товар"
+					class="card__bucketImage"
+				>
 			</div>
 		</div>
 		<div class="card__content">
 			<div class="card__picture _ibg">
-				<img :src="post.image" alt="Изображние товара" class="card__img">
+				<img
+					:src="post.image"
+					alt="Изображние товара"
+					class="card__img"
+				>
 			</div>
 			<div class="card__about">
 				<span class="card__title">{{ post.title }}</span>
