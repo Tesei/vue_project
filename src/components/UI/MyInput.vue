@@ -14,6 +14,20 @@
             type="text"
             class="input"
             :value="modelValue"
+            @input="updateInputWithWhiteSpace"
+            :class="{ '_req': req, '_active': checkDataValue, '_error': showError }"
+            :id="nameId"
+            autocomplete="off"
+            name="form[]"
+            data-value=""
+            :placeholder="placeHolder"
+            :data-error="dataError"
+        >
+        <!-- <input
+            v-if="oninpShow"
+            type="text"
+            class="input"
+            :value="modelValue"
             @input="updateInput"
             :class="{ '_req': req, '_active': checkDataValue, '_error': showError }"
             :id="nameId"
@@ -23,7 +37,7 @@
             :placeholder="placeHolder"
             :data-error="dataError"
             oninput="this.value = this.value.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('').trim()"
-        >
+        > -->
 
         <input
             v-else
@@ -83,6 +97,10 @@ export default {
     methods: {
         updateInput(event) {
             this.$emit('update:modelValue', event.target.value)
+        },
+        updateInputWithWhiteSpace(event) {
+            let updatedValue = event.target.value.replace(/[^\d.,]/g, '').split('').reverse().join('').replace(/(.{3})/g, '$1 ').replace(/[,]/g, '.').split('').reverse().join('').trim()
+            this.$emit('update:modelValue', updatedValue)
         },
 
     },
